@@ -1,7 +1,7 @@
-package Task_1_FirstProject;
+package HW_3_EscapeSequencesLoops;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.printf("Hello world");
+
     }
 }
