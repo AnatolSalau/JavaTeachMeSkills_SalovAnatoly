@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class EscapeSequences {
     public static void main(String[] args) {
         coupleOfYearsSwitch();
-//        coupleOfYearsIfElse();
+        coupleOfYearsIfElse();
 //        evenOrOdd();
 //        temperature();
 //        colorOfRainbow();
@@ -20,7 +20,7 @@ public class EscapeSequences {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter number of month: ");
         int numberOfMonth = scanner.nextInt();
-        scanner.close();
+        //scanner.close();
         switch (numberOfMonth) {
             case (1) :
                 System.out.println("Month is " + "January");
