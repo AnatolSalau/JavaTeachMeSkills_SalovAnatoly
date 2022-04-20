@@ -101,6 +101,8 @@ public class FindInArray {
         return maxMinMiddle;
     }
 
+
+
     public int[] getMaxMinMiddleValuesFromArray(int[] array) {
         int[] maxMinMiddle = new int[3];
         maxMinMiddle[0] = array[0];

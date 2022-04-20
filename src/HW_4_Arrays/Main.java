@@ -2,12 +2,13 @@ package HW_4_Arrays;
 
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.LinkedHashMap;
 
 public class Main {
     public static void main(String[] args) {
 //        task_0_findNumberInArray();
 //        task_1_getNewArrayWithoutValue();
-//        task_2_maxMinMiddleValuesFromArray();
+        task_2_maxMinMiddleValuesFromArray();
 //        task_3_twoArrays();
 //        task_4_evenNumbersArray();
 //        task_5_replaceAllOddElementsZero();
@@ -52,6 +53,12 @@ public class Main {
         int[] array = createArrays.getArrayWithRandomIntegerValuesScannerLength();
         printArray.printArray(array);
         findInArray.getMaxMinMiddleValuesFromArrayWithPrint(array);
+//---------------------------------
+        CreateHashMap createHashMap = new CreateHashMap();
+        LinkedHashMap <String,Integer> result = createHashMap.getHashMapMaxMinMiddleValuesFromArray(array);
+        createHashMap.printHashMap(result);
+
+
     }
 
     public static void task_3_twoArrays() {
