@@ -23,5 +23,10 @@ public class Main {
         вывести информацию на экран;
         создать объект "компьютер 2" с помощью второго конструктора и
         вывести информацию на экран.*/
+        Computer computerOne = new Computer(100.50,"Athlon");
+        computerOne.toString();
+        Computer computerTwo = new Computer(100.50,"Intel","SomeRam","SomeHdd",
+                                            1024,2048,HDDType.INTERNAL);
+        computerTwo.toString();
     }
 }
