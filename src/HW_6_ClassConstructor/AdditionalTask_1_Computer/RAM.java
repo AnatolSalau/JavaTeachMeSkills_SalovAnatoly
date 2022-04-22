@@ -1,4 +1,4 @@
-package HW_6_ClassConstructor.AdditionalTask_1;
+package HW_6_ClassConstructor.AdditionalTask_1_Computer;
 
 public class RAM extends Accessories{
 

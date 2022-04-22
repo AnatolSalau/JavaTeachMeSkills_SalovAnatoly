@@ -1,4 +1,4 @@
-package HW_6_ClassConstructor.AdditionalTask_1;
+package HW_6_ClassConstructor.AdditionalTask_1_Computer;
 
 public abstract class Accessories {
     private String name;

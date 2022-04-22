@@ -1,4 +1,4 @@
-package HW_6_ClassConstructor.AdditionalTask_1;
+package HW_6_ClassConstructor.AdditionalTask_1_Computer;
 
 public class Main {
     public static void main(String[] args) {
