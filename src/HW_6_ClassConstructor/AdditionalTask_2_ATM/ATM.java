@@ -3,61 +3,54 @@ package HW_6_ClassConstructor.AdditionalTask_2_ATM;
 import java.util.Scanner;
 
 public class ATM {
-    private Banknote nominaOne;
-    private Banknote nominaTwo;
-    private Banknote nominalThree;
+    private Banknote nominal20;
+    private Banknote nominal50;
+    private Banknote nominal100;
+    private Scanner scanner = new Scanner(System.in);
 
     public ATM (int nominalOne, int quantityOne,
                 int nominalTwo, int quantityTwo,
                 int nominalThree, int quantityThree) {
-        this.nominaOne = new Banknote(nominalOne,quantityOne);
-        this.nominaTwo = new Banknote(nominalTwo,quantityTwo);
-        this.nominalThree = new Banknote(nominalThree,quantityThree);
+        this.nominal20 = new Banknote(nominalOne,quantityOne);
+        this.nominal50 = new Banknote(nominalTwo,quantityTwo);
+        this.nominal100 = new Banknote(nominalThree,quantityThree);
     }
 
     public void addMoneyToATM () {
-        Scanner scanner = new Scanner(System.in);
+        System.out.println("\nYou can add money to ATM");
+        System.out.printf("\nPlease, enter quantity of first nominal (%d) :",nominal20.getNominal());
+        nominal20.addQuantityBanknotes(scanner.nextInt());
 
-        System.out.println("You can add money to ATM");
-        System.out.printf("\nPlease, enter quantity of first nominal (%d) :",nominaOne.getNominal());
-        nominaOne.addQuantity(scanner.nextInt());
+        System.out.printf("\nPlease, enter quantity of first nominal (%d) :",nominal50.getNominal());
+        nominal50.addQuantityBanknotes(scanner.nextInt());
 
-        System.out.printf("\nPlease, enter quantity of first nominal (%d) :",nominaTwo.getNominal());
-        nominaTwo.addQuantity(scanner.nextInt());
-
-        System.out.printf("\nPlease, enter quantity of first nominal (%d) :",nominalThree.getNominal());
-        nominalThree.addQuantity(scanner.nextInt());
+        System.out.printf("\nPlease, enter quantity of first nominal (%d) :",nominal100.getNominal());
+        nominal100.addQuantityBanknotes(scanner.nextInt());
     }
 
-    public boolean getMoney (int removedMoney) {
-        if (checkEnteredQuantityOfMoney(removedMoney)) {
-                if (nominaOne.getQuantity() > 0 && nominaOne.getQuantity() < removedMoney) {
-                    nominaOne.minusQuantity(removedMoney);
-                    return true;
-                }
-                else if (nominaTwo.getQuantity() > 0 && nominaTwo.getQuantity() < removedMoney) {
-                    nominaTwo.minusQuantity(removedMoney);
-                    return true;
-                }
-                else if(nominalThree.getQuantity() > 0 && nominalThree.getQuantity() < removedMoney) {
-                    nominalThree.minusQuantity(removedMoney);
-                    return true;
-                }
-                else {
-                    System.out.println("ERROR!");
-                    return false;
-                }
-            }
+    public void printQuantitymoney() {
+        System.out.println("\nATM have:");
+        nominal20.printQuantity();
+        nominal50.printQuantity();
+        nominal100.printQuantity();
+    }
+
+    public boolean printGetMoney() {
+        System.out.print("\nEnter quantity money, that  would like to get (multiple: 20, 50, 100): ");
+        int money = scanner.nextInt();
+        if (checkEnteredQuantityOfMoney(money)) {
+            return getMoney(money);
+        }
         else {
+            System.out.print("printGetMoney Error! ");
             return false;
         }
-
     }
 
     private boolean checkEnteredQuantityOfMoney(int money) {
-        int allMOney = nominaOne.getQuantity()* nominaOne.getNominal() +
-                        nominaTwo.getQuantity()* nominaTwo.getNominal() +
-                        nominalThree.getQuantity()* nominalThree.getNominal();
+        int allMOney = nominal20.calculateTotalAmount() +
+                nominal50.calculateTotalAmount() +
+                nominal100.calculateTotalAmount();
         if (money > allMOney) {
             System.out.println("ERROR! Entered money bigger than money on bank account");
             return false;
@@ -67,8 +60,37 @@ public class ATM {
             return false;
         }
         else {
+                if(money/ nominal20.getNominal() == 0 ||
+                money/nominal50.getNominal() == 0 ||
+                money/nominal50.getNominal() == 0) {
+                return true;
+                }
+                else {
+                    System.out.println("ERROR! Entered summ not multiple: 20, 50, 100");
+                    return false;
+                }
+        }
+    }
+
+    private boolean getMoney(int money) {
+        int quantityBanknotes = 0;
+        if(money < nominal100.calculateTotalAmount()) {
+            nominal100.minusQuantityBanknotes(money/nominal100.getNominal());
             return true;
         }
+        else if (money < nominal50.calculateTotalAmount()) {
+            nominal50.minusQuantityBanknotes(money/nominal50.getNominal());
+            return true;
+        }
+        else if (money < nominal20.calculateTotalAmount()) {
+            nominal20.minusQuantityBanknotes(money/nominal20.getNominal());
+            return true;
+        }
+        else {
+            System.out.println("getMoney Error!");
+            return false;
+        }
+
     }
 
 
