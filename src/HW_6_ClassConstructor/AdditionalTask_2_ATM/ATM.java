@@ -60,9 +60,9 @@ public class ATM {
             return false;
         }
         else {
-                if(money/ nominal20.getNominal() == 0 ||
-                money/nominal50.getNominal() == 0 ||
-                money/nominal50.getNominal() == 0) {
+                if(money % nominal20.getNominal() == 0 ||
+                money % nominal50.getNominal() == 0 ||
+                money % nominal50.getNominal() == 0) {
                 return true;
                 }
                 else {
@@ -74,15 +74,15 @@ public class ATM {
 
     private boolean getMoney(int money) {
         int quantityBanknotes = 0;
-        if(money < nominal100.calculateTotalAmount()) {
+        if(money <= nominal100.calculateTotalAmount() && money % nominal100.getNominal() == 0) {
             nominal100.minusQuantityBanknotes(money/nominal100.getNominal());
             return true;
         }
-        else if (money < nominal50.calculateTotalAmount()) {
+        else if (money <=nominal50.calculateTotalAmount() && money % nominal50.getNominal() == 0) {
             nominal50.minusQuantityBanknotes(money/nominal50.getNominal());
             return true;
         }
-        else if (money < nominal20.calculateTotalAmount()) {
+        else if (money <= nominal20.calculateTotalAmount() && money % nominal20.getNominal() == 0) {
             nominal20.minusQuantityBanknotes(money/nominal20.getNominal());
             return true;
         }
