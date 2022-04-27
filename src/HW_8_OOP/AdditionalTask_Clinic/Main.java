@@ -1,5 +1,13 @@
 package HW_8_OOP.AdditionalTask_Clinic;
 
+import HW_8_OOP.AdditionalTask_Clinic.doctors.Condition;
+import HW_8_OOP.AdditionalTask_Clinic.doctors.Dentist;
+import HW_8_OOP.AdditionalTask_Clinic.doctors.Surgeon;
+import HW_8_OOP.AdditionalTask_Clinic.doctors.Therapist;
+import HW_8_OOP.AdditionalTask_Clinic.patients.CodeCure;
+import HW_8_OOP.AdditionalTask_Clinic.patients.Patient;
+import HW_8_OOP.AdditionalTask_Clinic.patients.PlaneCure;
+
 public class Main {
     public static void main(String[] args) {
 /*        Дополнительное задание
@@ -16,5 +24,26 @@ public class Main {
         лечить.
         Если план лечения имеет любой другой код – назначить терапевта и
         выполнить метод лечить.*/
+
+        Dentist dentistBusy = new Dentist();
+        Dentist dentistFree = new Dentist(Condition.FREE);
+
+        Surgeon surgeonBusy = new Surgeon();
+        Surgeon surgeonFree = new Surgeon(Condition.FREE);
+
+        Therapist therapistBusy = new Therapist();
+        Therapist therapistFree = new Therapist(Condition.FREE);
+
+        Patient patientDoctorisNull = new Patient(CodeCure.ONE);
+        System.out.println(patientDoctorisNull.getCurrentDoctor());
+
+       patientDoctorisNull.selectDoctor();
+       System.out.println(patientDoctorisNull.getCurrentDoctor());
+
+        // set for patient first free doctor
+       patientDoctorisNull.selectDoctor(dentistBusy,surgeonBusy, dentistFree);
+
+
+
     }
 }
