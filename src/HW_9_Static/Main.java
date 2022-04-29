@@ -1,7 +1,4 @@
-
-/*       Основное задание
-
-       - метод разности векторов;
+/*
        - статический метод, который принимает целое число N, и
        возвращает массив случайных векторов размером N.
 
@@ -16,17 +13,6 @@
        произвольной размерности.
        Для этого в классе вектор для хранения координат следует использовать
        массив.*/
-
-
-
-
-
-
-
-
-
-
-
 package HW_9_Static;
 
 public class Main {
@@ -35,11 +21,17 @@ public class Main {
     Vector vector = new Vector(1,2,3);
     Vector vector2 = new Vector(1,3,3);
 
-        Vector vector3 = new Vector(1,2);
+        Vector vector3 = new Vector(3,3);
         Vector vector4 = new Vector(1,2);
 
         vector.printVectorLength();
+
         Vector.printScalarMultiply(vector, vector4, 10);
 
+        Vector.printScalarDifference(vector3,vector4);
+
+        Vector.printArrayVectors(10, SizeVector.THREE_SIZE_VECTOR);
+
+        vector4.printToString();
     }
 }
